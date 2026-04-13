@@ -3,17 +3,16 @@
     <head>
         <meta charset="utf-8">
         <script>
-    document.cookie = "username=Frank Geerwar-Amador; expires=Thu, 16 Dec 2026 12:00:00 UTC; path=C:/Users/built/IS117/A10";
-    console.log(document.cookie);
-  function setCookie(cname,cvalue,exdays) {
+    document.cookie = "username=Frank Geerwar-Amador; expires=Thu, 16 April 2026 12:00:00 UTC; path=C:/Users/built/IS117/A10";
+  function setCookie(cname,cvalue,exdays, caccount) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires=" + d.toUTCString();
-  //document.cookie = cname + "=" + cvalue + ";" + expires + ";path=C:/Usersbuilt/IS117/A10";
 }
 
-function getCookie(cname) {
+function getCookie(cname, caccount) {
   let name = cname + "=";
+  let account = caccount + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
   for(let i = 0; i < ca.length; i++) {
@@ -22,7 +21,7 @@ function getCookie(cname) {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
+      return c.substring(name.length, account.length, c.length);
     }
   }
   return "";
@@ -30,13 +29,22 @@ function getCookie(cname) {
 
 function checkCookie() {
   let user = getCookie("username");
+  let account = getCookie("account");
   if (user != "") {
-    alert("Welcome again " + user);
+    alert("Nice to see you again: " + user);
   } else {
      user = prompt("Please enter your name:","");
      if (user != "" && user != null) {
        setCookie("username", user, 30);
      }
+  }
+  if(account != ""){
+    alert("Account: " + account);
+  } else{
+    account = prompt("Please enter your account: ","");
+    if(account != "" && account != null){
+        setCookie("account", account, 30);
+    }
   }
 }
     </script>
