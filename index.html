@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <script>
-        document.cookie = "username=Frank Geerwar-Amador expires=Thu, 16 April 2026 12:00:00 UTC; path=C:/Users/built/IS117/A10";
+        document.cookie = "username=Frank Geerwar-Amador expires=Thu, 16 April 2026 12:00:00 UTC; path=C:/Users/built/IS117/A10/index.html";
         function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=C:/Users/built/IS117/A10";
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=C:/Users/built/IS117/A10/index.html";
 }
 
 function getCookie(cname) {
-  let name = cname + "=";
   let ca = document.cookie.split(';');
   for(let i = 0; i < ca.length; i++) {
     let c = ca[i];
