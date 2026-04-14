@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <script>
     document.cookie = "username=Frank Geerwar-Amador; account=frank@gmail.com;expires=Thu, 16 April 2026 12:00:00 UTC; path=C:/Users/built/IS117/A10";
-  function setCookie(cname, cvalue, exdays, caccount) {
+  function setCookie(cname, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function getCookie(cname, caccount) {
+function getCookie(cname) {
   let name = cname + "=";
-  let account = caccount + "=";
   let ca = document.cookie.split(';');
   for(let i = 0; i < ca.length; i++) {
     let c = ca[i];
@@ -20,7 +20,7 @@ function getCookie(cname, caccount) {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
-      return c.substring(name.length, account.length, c.length);
+      return c.substring(name.length, c.length);
     }
   }
   return "";
@@ -28,10 +28,8 @@ function getCookie(cname, caccount) {
 
 function checkCookie() {
   let user = getCookie("username");
-  let account = getCookie("account");
   if (user != "") {
     alert("Welcome again " + user);
-    console.log(account);
   } else {
     user = prompt("Please enter your name:", "");
     if (user != "" && user != null) {
