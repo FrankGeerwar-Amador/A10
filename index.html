@@ -28,7 +28,7 @@ function getCookie(cnumber) {
 function checkCookie() {
   let number = getCookie("LuckyNum");
   if (number != "") {
-    alert("Lucky number " + number);
+    alert("Lucky number: " + number);
   } else {
     number = prompt("What is your lucky number? ", "");
     if (number != "" && number != null) {
