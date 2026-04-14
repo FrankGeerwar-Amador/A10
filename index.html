@@ -4,15 +4,16 @@
         <meta charset="utf-8">
         <script>
     document.cookie = "username=Frank Geerwar-Amador; account=frank@gmail.com;expires=Thu, 16 April 2026 12:00:00 UTC; path=C:/Users/built/IS117/A10";
-  function setCookie(cname, cvalue, exdays) {
+  function setCookie(cname, caccount, cvalue, exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  document.cookie = caccount + "=" + cvalue + ";" + expires + ";path=C:/Users/built/IS117/A10";
 }
 
-function getCookie(cname) {
+function getCookie(cname, caccount) {
   let name = cname + "=";
+  let account = caccount + "=";
   let ca = document.cookie.split(';');
   for(let i = 0; i < ca.length; i++) {
     let c = ca[i];
@@ -20,7 +21,7 @@ function getCookie(cname) {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
+      return c.substring(name.length, account.length, c.length);
     }
   }
   return "";
@@ -28,12 +29,13 @@ function getCookie(cname) {
 
 function checkCookie() {
   let user = getCookie("username");
+  let account = getCookie("account");
   if (user != "") {
-    alert("Welcome again " + user);
+    alert("Your account is: " + account);
   } else {
     user = prompt("Please enter your name:", "");
     if (user != "" && user != null) {
-      setCookie("username", user, 365);
+      setCookie("username", "account", user, 365);
     }
   }
 }
